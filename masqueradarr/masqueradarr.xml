@@ -16,7 +16,7 @@ https://discord.com/channels/1519879505886576690/1519879507039748098</Overview>
   <Category>HomeAutomation: Tools: MediaApp:Video MediaServer:Video Network:Proxy</Category>
   <WebUI>http://[IP]:[PORT:3000]</WebUI>
   <TemplateURL/>
-  <Icon>https://raw.githubusercontent.com/TheBinaryNinja/unraid-templates/refs/heads/main/assets/masqueradarr.ico</Icon>
+  <Icon>https://raw.githubusercontent.com/TheBinaryNinja/masqueradarr/refs/heads/main/docs/icons/app-icon-teal-circle-512.png</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
