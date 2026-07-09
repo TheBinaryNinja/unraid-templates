@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <Containers>
   <Beta>True</Beta>
+  <Date>2026-06-01</Date>
   <Name>masqueradarr</Name>
   <Repository>iflip721/masqueradarr-aio:latest</Repository>
   <Registry>https://hub.docker.com/r/iflip721/masqueradarr-aio</Registry>
@@ -21,7 +22,6 @@ https://discord.com/channels/1519879505886576690/1519879507039748098</Overview>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1782645950</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Requires/>
