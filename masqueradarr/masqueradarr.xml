@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<Container version="2">
+<Containers>
+  <Beta>True</Beta>
   <Name>masqueradarr</Name>
   <Repository>iflip721/masqueradarr-aio:latest</Repository>
   <Registry>https://hub.docker.com/r/iflip721/masqueradarr-aio</Registry>
@@ -8,7 +9,7 @@
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
   <Support>https://discord.gg/baD3HGpkcD</Support>
-  <Project>https://github.com/TheBinaryNinja/masqueradarr</Project>
+  <Project>https://thebinaryninja.github.io/masqueradarr/</Project>
   <ReadMe>https://github.com/TheBinaryNinja/masqueradarr/blob/main/README.md</ReadMe>
   <Overview>masqueradarr is a self-hosted IPTV aggregator. It pulls channel playlists (M3U) and guide data (EPG/XMLTV) from a range of online IPTV services, normalizes them into one catalog, and serves them back as a single, unified, standards-compliant playlist + guide &#x2014; behind one trusted identity that your media apps and IPTV clients can talk to.&#13;
 &#13;
@@ -24,6 +25,7 @@ https://discord.com/channels/1519879505886576690/1519879507039748098</Overview>
   <DonateText/>
   <DonateLink/>
   <Requires/>
+  <Config Name="MASQ_EDGE" Target="MASQ_EDGE" Default="" Mode="" Description="Optional (default off). 1 inverts the topology so the Rust proxy owns the public port" Type="Variable" Display="always" Required="false" Mask="false">1</Config>
   <Config Name="MASQUERADARR_PORT" Target="3000" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">3000</Config>
   <Config Name="MONGO_HOST_PORT" Target="27017" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">27017</Config>
   <Config Name="MONGO_ROOT_USER" Target="MONGO_ROOT_USER" Default="" Mode="" Description="Update MONGO_ROOT_USER to set a different username" Type="Variable" Display="always" Required="true" Mask="false">masqueradarr</Config>
@@ -35,4 +37,4 @@ https://discord.com/channels/1519879505886576690/1519879507039748098</Overview>
   <Config Name="DISPLAY_NAME" Target="DISPLAY_NAME" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">masqueradarr</Config>
   <Config Name="TZ" Target="TZ" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">America/New_York</Config>
   <TailscaleStateDir/>
-</Container>
+</Containers>
