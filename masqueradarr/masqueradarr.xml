@@ -30,7 +30,7 @@ https://discord.com/channels/1519879505886576690/1519879507039748098</Overview>
   <Config Name="MONGO_HOST_PORT" Target="27017" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">27017</Config>
   <Config Name="MONGO_ROOT_USER" Target="MONGO_ROOT_USER" Default="" Mode="" Description="Update MONGO_ROOT_USER to set a different username" Type="Variable" Display="always" Required="true" Mask="false">masqueradarr</Config>
   <Config Name="MONGO_ROOT_PASS" Target="MONGO_ROOT_PASS" Default="" Mode="" Description="Update MONGO_ROOT_PASS to set a different password" Type="Variable" Display="always" Required="true" Mask="true">changeme</Config>
-  <Config Name="MONGO_DATA_PATH" Target="/app/mongo" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/masqueradarr/mongo</Config>
+  <Config Name="MONGO_DATA_PATH" Target="/data" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/masqueradarr/mongo</Config>
   <Config Name="COMPOSE_PATH" Target="/app/compose" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/masqueradarr/compose</Config>
   <Config Name="BACKUPS_PATH" Target="/app/backups" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/masqueradarr/backups</Config>
   <Config Name="DOMAIN" Target="DOMAIN" Default="" Mode="" Description="Update DOMAIN to match your local system or public domain" Type="Variable" Display="always" Required="false" Mask="false">http://localhost:3000</Config>
