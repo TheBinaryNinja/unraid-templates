@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>anikoto</Name>
+  <Repository>iflip721/anikoto:latest</Repository>
+  <Registry>https://hub.docker.com/r/iflip721/anikoto</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://github.com/iFlip721/AniKoto/tree/main</Project>
+  <ReadMe/>
+  <Overview/>
+  <Category>HomeAutomation: Tools: MediaApp:Video MediaServer:Video Network:Proxy</Category>
+  <WebUI>http://[IP]:[PORT:4444}</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/TheBinaryNinja/unraid-templates/refs/heads/main/assets/anikoto-grid-sakura-256.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="ANIKOTO_PORT" Target="4444" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">4444</Config>
+  <Config Name="ANIKOTO_MEDIA" Target="/app/downloads" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/media/tv_anime</Config>
+  <Config Name="ANIKOTO_DATA" Target="/app/database" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/anikoto/data</Config>
+  <Config Name="AUTH_GATE_SCOPE" Target="AUTH_GATE_SCOPE" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">all</Config>
+  <Config Name="AUTH_SESSION_TTL_DAYS" Target="AUTH_SESSION_TTL_DAYS" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">2</Config>
+  <Config Name="AUTH_COOKIE_SECURE" Target="AUTH_COOKIE_SECURE" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">auto</Config>
+  <Config Name="AUTH_TRUST_PROXY" Target="AUTH_TRUST_PROXY" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">1</Config>
+  <Config Name="CONTENT_PERMISSIONS" Target="CONTENT_PERMISSIONS" Default="" Mode="" Description="Master switch &#x2014; set to 'off' to disable all ownership/permission work." Type="Variable" Display="advanced-hide" Required="false" Mask="false">on</Config>
+  <Config Name="CONTENT_FIX_ON_BOOT" Target="CONTENT_FIX_ON_BOOT" Default="" Mode="" Description="One-time boot sweep over already-downloaded content &#x2014; set to 'off' to skip only the sweep (e.g. a very large library) while still permissioning new downloads/moves." Type="Variable" Display="advanced-hide" Required="false" Mask="false">on</Config>
+  <Config Name="CONTENT_DIR_MODE" Target="CONTENT_DIR_MODE" Default="" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="false" Mask="false">777</Config>
+  <Config Name="CONTENT_FILE_MODE" Target="CONTENT_FILE_MODE" Default="" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="false" Mask="false">0664</Config>
+  <Config Name="CONTENT_UID" Target="CONTENT_UID" Default="" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="false" Mask="false">99</Config>
+  <Config Name="CONTENT_GID" Target="CONTENT_GID" Default="" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="false" Mask="false">100</Config>
+  <Config Name="STORAGE_QUOTA_GB" Target="STORAGE_QUOTA_GB" Default="" Mode="" Description="STORAGE_QUOTA_GB - Leave blank for no storage quota" Type="Variable" Display="advanced-hide" Required="false" Mask="false"/>
+  <TailscaleStateDir/>
+</Container>
