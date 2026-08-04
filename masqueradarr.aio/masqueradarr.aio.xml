@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Containers>
+<Containers version="2">
   <Beta>false</Beta>
   <Date>2026-06-02</Date>
   <Name>masqueradarr.aio</Name>
