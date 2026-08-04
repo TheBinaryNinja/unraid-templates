@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommunityApplications>
+  <Profile>
+**Binary Ninja** — self-hosted media and networking containers for Unraid, maintained by [iFlip721](https://github.com/iFlip721).
+
+This repository holds the Community Applications templates for those projects:
+
+- **AirConnect** — AirPlay bridging to UPnP/Sonos and Chromecast devices, with a web UI for diagnostics.
+- **masqueradarr.aio** — self-hosted IPTV aggregator that normalizes multiple providers into one unified playlist and guide.
+
+Support runs through each project's GitHub issue tracker or its Discord. Templates are kept in sync with the upstream images; open an issue here if a template itself is wrong.
+  </Profile>
+
+  <!-- Square 512x512 transparent PNG; CA circle-crops this, so do not swap in a
+       non-square image (assets/bn-logo.png is 600x475 and would clip). -->
+  <Icon>https://raw.githubusercontent.com/TheBinaryNinja/unraid-templates/main/assets/bn-profile-512.png</Icon>
+
+  <WebPage>https://github.com/TheBinaryNinja</WebPage>
+  <Discord>https://discord.gg/baD3HGpkcD</Discord>
+
+  <DonateText>If these containers are useful to you, consider supporting the work.</DonateText>
+  <DonateLink>https://github.com/sponsors/iFlip721</DonateLink>
+
+  <!-- Add once an Unraid support topic exists:
+  <Forum>https://forums.unraid.net/topic/XXXXXX-support-binary-ninja/</Forum>
+  -->
+</CommunityApplications>

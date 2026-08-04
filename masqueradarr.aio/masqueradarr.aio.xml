@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Containers version="2">
+<Container version="2">
   <Beta>false</Beta>
   <Date>2026-06-02</Date>
   <Name>masqueradarr.aio</Name>
@@ -11,19 +11,21 @@
   <Privileged>false</Privileged>
   <Support>https://discord.gg/baD3HGpkcD</Support>
   <Project>https://thebinaryninja.github.io/masqueradarr/</Project>
-  <ReadMe>https://github.com/TheBinaryNinja/masqueradarr/blob/main/README.md</ReadMe>
+  <Discord>https://discord.gg/baD3HGpkcD</Discord>
+  <ReadMe>https://raw.githubusercontent.com/TheBinaryNinja/masqueradarr/main/README.md</ReadMe>
   <Overview>masqueradarr is a self-hosted IPTV aggregator. It pulls channel playlists (M3U) and guide data (EPG/XMLTV) from a range of online IPTV services, normalizes them into one catalog, and serves them back as a single, unified, standards-compliant playlist + guide &#x2014; behind one trusted identity that your media apps and IPTV clients can talk to.&#13;
 &#13;
 https://discord.com/channels/1519879505886576690/1519879507039748098</Overview>
-  <Category>HomeAutomation: Tools: MediaApp:Video MediaServer:Video Network:Proxy</Category>
+  <Category>Tools:Utilities MediaApp:Video MediaServer:Video Network:Proxy</Category>
   <WebUI>http://[IP]:[PORT:3000]</WebUI>
-  <TemplateURL/>
+  <TemplateURL>https://raw.githubusercontent.com/TheBinaryNinja/unraid-templates/main/masqueradarr.aio/masqueradarr.aio.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/TheBinaryNinja/masqueradarr/refs/heads/main/docs/icons/app-icon-teal-circle-512.png</Icon>
+  <License>MIT</License>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DonateText/>
-  <DonateLink/>
+  <DonateText>If this container is useful to you, consider supporting the work.</DonateText>
+  <DonateLink>https://github.com/sponsors/iFlip721</DonateLink>
   <Requires/>
   <Config Name="MASQ_EDGE" Target="MASQ_EDGE" Default="" Mode="" Description="Optional (default off). 1 inverts the topology so the Rust proxy owns the public port" Type="Variable" Display="always" Required="false" Mask="false">1</Config>
   <Config Name="MASQUERADARR_PORT" Target="3000" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">3000</Config>
@@ -37,4 +39,4 @@ https://discord.com/channels/1519879505886576690/1519879507039748098</Overview>
   <Config Name="DISPLAY_NAME" Target="DISPLAY_NAME" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">masqueradarr</Config>
   <Config Name="TZ" Target="TZ" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">America/New_York</Config>
   <TailscaleStateDir/>
-</Containers>
+</Container>

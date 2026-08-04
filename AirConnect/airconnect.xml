@@ -11,7 +11,7 @@
   <Privileged>false</Privileged>
   <Support>https://github.com/iFlip721/AirConnect/issues</Support>
   <Project>https://github.com/iFlip721/AirConnect</Project>
-  <ReadMe>https://github.com/iFlip721/AirConnect/blob/main/README.md</ReadMe>
+  <ReadMe>https://raw.githubusercontent.com/iFlip721/AirConnect/main/README.md</ReadMe>
   <Overview>AirPlay to UPnP/Sonos and Chromecast, in a single container, with a web interface for seeing what is actually happening.&#13;
 &#13;
 Host networking is required, not a preference. AirPlay discovery is mDNS (5353/udp multicast), UPnP discovery is SSDP (1900/udp multicast), and the bridges bind ephemeral RTSP/RTP/HTTP ports per device unless AIRCONNECT_PORT_BASE is set. None of that survives a bridge network, and the Diagnostics page fails explicitly if bridge mode is detected.&#13;
@@ -19,13 +19,14 @@ Host networking is required, not a preference. AirPlay discovery is mDNS (5353/u
 Two host-side gotchas: if avahi holds 5353 exclusively, set disallow-other-stacks=no in /etc/avahi/avahi-daemon.conf; and IGMP snooping on your switch will silently filter discovery.</Overview>
   <Category>MediaServer:Music</Category>
   <WebUI>http://[IP]:8282</WebUI>
-  <TemplateURL/>
+  <TemplateURL>https://raw.githubusercontent.com/TheBinaryNinja/unraid-templates/main/AirConnect/airconnect.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/iFlip721/AirConnect/refs/heads/main/assets/logo/airconnect-mark-dark-circle.png</Icon>
+  <License>MIT</License>
   <ExtraParams>--stop-timeout=15</ExtraParams>
   <PostArgs/>
   <CPUset/>
-  <DonateText/>
-  <DonateLink/>
+  <DonateText>If this container is useful to you, consider supporting the work.</DonateText>
+  <DonateLink>https://github.com/sponsors/iFlip721</DonateLink>
   <Requires/>
   <Config Name="Config Path" Target="/config" Default="" Mode="rw" Description="Holds airupnp.xml and aircast.xml, so discovered devices survive an upgrade. The directory must be writable &#x2014; a read-only mount crashes upstream's config writer." Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/airconnect/config</Config>
   <Config Name="AIRCONNECT_MODE" Target="AIRCONNECT_MODE" Default="" Mode="" Description="Which bridges to run. Options: both (default) | upnp (alias airupnp) | cast (alias aircast). Any unrecognised value falls back to both." Type="Variable" Display="always" Required="false" Mask="false">both</Config>
