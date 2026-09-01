@@ -5,6 +5,11 @@
   <Name>masqueradarr.aio</Name>
   <Repository>iflip721/masqueradarr-aio:latest</Repository>
   <Registry>https://hub.docker.com/r/iflip721/masqueradarr-aio</Registry>
+  <DefaultTagDescription>Uses the latest technology stack and mongodb version</DefaultTagDescription>
+  <Branch>
+    <Tag>mongo4.4-latest</Tag>
+    <TagDescription>Uses a legacy technology stack for older systems that cannot run the latest version of mongodb</TagDescription>
+  </Branch>
   <Network>bridge</Network>
   <MyIP/>
   <Shell>sh</Shell>
@@ -14,6 +19,8 @@
   <Discord>https://discord.gg/baD3HGpkcD</Discord>
   <ReadMe>https://raw.githubusercontent.com/TheBinaryNinja/masqueradarr/main/README.md</ReadMe>
   <Overview>masqueradarr is a self-hosted IPTV aggregator. It pulls channel playlists (M3U) and guide data (EPG/XMLTV) from a range of online IPTV services, normalizes them into one catalog, and serves them back as a single, unified, standards-compliant playlist + guide &#x2014; behind one trusted identity that your media apps and IPTV clients can talk to.&#13;
+&#13;
+Two images are published. The default :latest tag uses the latest technology stack and mongodb version. The :mongo4.4-latest tag uses a legacy technology stack for older systems that cannot run the latest version of mongodb. Community Applications asks which one to install; if you add this template by URL instead, edit the Repository field to switch.&#13;
 &#13;
 https://discord.com/channels/1519879505886576690/1519879507039748098</Overview>
   <Category>Tools:Utilities MediaApp:Video MediaServer:Video Network:Proxy</Category>
