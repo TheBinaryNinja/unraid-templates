@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Beta>false</Beta>
-  <Date>2026-06-02</Date>
+  <Date>2026-11-26</Date>
   <Name>masqueradarr.aio</Name>
   <Repository>iflip721/masqueradarr-aio:latest</Repository>
   <Registry>https://hub.docker.com/r/iflip721/masqueradarr-aio</Registry>
@@ -22,6 +22,8 @@
 &#13;
 Two images are published. The default :latest tag uses the latest technology stack and mongodb version. The :mongo4.4-latest tag uses a legacy technology stack for older systems that cannot run the latest version of mongodb. Community Applications asks which one to install; if you add this template by URL instead, edit the Repository field to switch.&#13;
 &#13;
+Rebel IPTV (optional, off by default): masqueradarr can run or attach Rebel IPTV, a closed-source IPTV source licensed for personal, non-commercial use only. It always runs as its own unmodified rebeliptv/iptv container &#x2014; masqueradarr never bundles or patches it. Set REBEL_IPTV_ENABLED=true to turn it on. In managed mode (REBEL_IPTV_URL empty, DOCKER_SOCK_ACCESS=1) a sibling container named masq-rebel-iptv appears in the Unraid Docker tab without a template. That is expected: don't edit it there, manage it from masqueradarr Settings &#x2192; Rebel IPTV. Docker socket access is host-root-equivalent and off by default.&#13;
+&#13;
 https://discord.com/channels/1519879505886576690/1519879507039748098</Overview>
   <Category>Tools:Utilities MediaApp:Video MediaServer:Video Network:Proxy</Category>
   <WebUI>http://[IP]:[PORT:3000]</WebUI>
@@ -37,13 +39,26 @@ https://discord.com/channels/1519879505886576690/1519879507039748098</Overview>
   <Config Name="MASQ_EDGE" Target="MASQ_EDGE" Default="" Mode="" Description="Optional (default off). 1 inverts the topology so the Rust proxy owns the public port" Type="Variable" Display="always" Required="false" Mask="false">1</Config>
   <Config Name="MASQUERADARR_PORT" Target="3000" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">3000</Config>
   <Config Name="MONGO_HOST_PORT" Target="27017" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">27017</Config>
+  <Config Name="REBEL_IPTV_UI_HOST_PORT" Target="3080" Default="" Mode="tcp" Description="Rebel IPTV dashboard pop-up (admin-gated). Only used when REBEL_IPTV_ENABLED=true. The container always listens on 3080; if you change the host port here, set REBEL_IPTV_UI_PORT to the same value." Type="Port" Display="always" Required="false" Mask="false">3080</Config>
   <Config Name="MONGO_ROOT_USER" Target="MONGO_ROOT_USER" Default="" Mode="" Description="Update MONGO_ROOT_USER to set a different username" Type="Variable" Display="always" Required="true" Mask="false">masqueradarr</Config>
   <Config Name="MONGO_ROOT_PASS" Target="MONGO_ROOT_PASS" Default="" Mode="" Description="Update MONGO_ROOT_PASS to set a different password" Type="Variable" Display="always" Required="true" Mask="true">changeme</Config>
   <Config Name="MONGO_DATA_PATH" Target="/data" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/masqueradarr/mongo</Config>
   <Config Name="COMPOSE_PATH" Target="/app/compose" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/masqueradarr/compose</Config>
   <Config Name="BACKUPS_PATH" Target="/app/backups" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/masqueradarr/backups</Config>
+  <Config Name="DOCKER_SOCKET" Target="/var/run/docker.sock" Default="" Mode="rw" Description="Docker socket. Opt-in: leave blank to keep it unmounted. Only mount together with DOCKER_SOCK_ACCESS=1 &#x2014; host-root-equivalent. The app user joins the socket's group; a socket that is root:root and not group-writable is refused (logged at startup), in which case run a docker-socket-proxy and set MASQ_DOCKER_HOST instead of mounting this." Type="Path" Display="advanced" Required="false" Mask="false"/>
   <Config Name="DOMAIN" Target="DOMAIN" Default="" Mode="" Description="Update DOMAIN to match your local system or public domain" Type="Variable" Display="always" Required="false" Mask="false">http://localhost:3000</Config>
   <Config Name="DISPLAY_NAME" Target="DISPLAY_NAME" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">masqueradarr</Config>
   <Config Name="TZ" Target="TZ" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">America/New_York</Config>
+  <Config Name="DOCKER_SOCK_ACCESS" Target="DOCKER_SOCK_ACCESS" Default="" Mode="" Description="App-wide Docker Engine API access: 0 = off, 1 = on (host-root-equivalent). Needed for Rebel IPTV managed mode, updates, auto-update, restart and logs. Requires the Docker socket mount (advanced) or MASQ_DOCKER_HOST. If the startup log says the socket is root:root and not group-writable, use a docker-socket-proxy and MASQ_DOCKER_HOST." Type="Variable" Display="always" Required="false" Mask="false">0</Config>
+  <Config Name="REBEL_IPTV_ENABLED" Target="REBEL_IPTV_ENABLED" Default="" Mode="" Description="Run/attach the optional Rebel IPTV companion (true/false)." Type="Variable" Display="always" Required="false" Mask="false">false</Config>
+  <Config Name="REBEL_IPTV_URL" Target="REBEL_IPTV_URL" Default="" Mode="" Description="Set = adopt a Rebel you run yourself (e.g. http://rebel-iptv:8080 on a shared network). Empty = managed: masqueradarr creates masq-rebel-iptv + masq-rebel-net + masq-rebel-iptv-data itself (needs DOCKER_SOCK_ACCESS=1)." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="REBEL_IPTV_IMAGE" Target="REBEL_IPTV_IMAGE" Default="" Mode="" Description="Rebel IPTV image. A non-latest tag pins it (updates become notices only)." Type="Variable" Display="advanced" Required="false" Mask="false">rebeliptv/iptv:latest</Config>
+  <Config Name="REBEL_IPTV_UI_PORT" Target="REBEL_IPTV_UI_PORT" Default="" Mode="" Description="Host port of the pop-up &#x2014; must match the host side of the 3080 port mapping above." Type="Variable" Display="advanced" Required="false" Mask="false">3080</Config>
+  <Config Name="REBEL_IPTV_UI_PUBLIC_URL" Target="REBEL_IPTV_UI_PUBLIC_URL" Default="" Mode="" Description="Full origin when the pop-up sits behind TLS/reverse proxy, e.g. https://rebel.example.com." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="REBEL_IPTV_CONTAINER" Target="REBEL_IPTV_CONTAINER" Default="" Mode="" Description="Container name override (managed default masq-rebel-iptv)." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="REBEL_IPTV_PUBLISH_PORT" Target="REBEL_IPTV_PUBLISH_PORT" Default="" Mode="" Description="Managed only: also publish Rebel&apos;s :8080 (HDHomeRun emulation) on this host port." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="DOCKER_SOCK_PATH" Target="DOCKER_SOCK_PATH" Default="" Mode="" Description="Socket path inside the container if non-standard (default /var/run/docker.sock)." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="MASQ_DOCKER_HOST" Target="MASQ_DOCKER_HOST" Default="" Mode="" Description="Use a docker-socket-proxy instead of the raw socket, e.g. tcp://docker-sock-proxy:2375. This is the workaround when the socket is root:root and not group-writable." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="MASQ_SELF_CONTAINER" Target="MASQ_SELF_CONTAINER" Default="" Mode="" Description="This container&apos;s name/ID, only if auto-detection fails (needed for managed mode to join masq-rebel-net)." Type="Variable" Display="advanced" Required="false" Mask="false"/>
   <TailscaleStateDir/>
 </Container>
